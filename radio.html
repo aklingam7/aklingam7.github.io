@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio</title>
+    <style>
+      * {
+        font-family: "Lucida Console", "Courier New", monospace;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Radio</h1>
+    <div id="genres">
+      <button onclick="play('https://www.youtube.com/embed/5qap5aO4i9A')">
+        lofi hip-hop
+      </button>
+      <button onclick="play('https://www.youtube.com/embed/kx4HQSb4s2I')">
+        jazz
+      </button>
+      <button onclick="play('https://www.youtube.com/embed/xxgxkjV70Vc')">
+        retrowave
+      </button>
+      <button onclick="play('https://www.youtube.com/embed/lE6RYpe9IT0')">
+        nature
+      </button>
+    </div>
+    <button id="stopbtn" onclick="stop()" style="display: none">🛑</button>
+    <br />
+    <br />
+    <div id="player"></div>
+    <script>
+      function play(link) {
+        player = document.getElementById("player");
+        player.innerHTML = `<iframe width="560" height="315" src="${link}?autoplay=1&start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        document.getElementById("genres").style.display = "none";
+        document.getElementById("stopbtn").style.display = "inline";
+      }
+      function stop() {
+        document.getElementById("genres").style.display = "block";
+        document.getElementById("stopbtn").style.display = "none";
+        document.getElementById("player").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
